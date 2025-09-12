@@ -16,3 +16,16 @@ jobs:
 
       - name: check the node version
         run: node --version
+
+      - name: cloning the repository in runner machine
+        uses: actions/checkout@v2
+
+      - name: checking directiory
+        run: ls
+
+      - name: installing 
+        run: npm install
+
+      - name: again checking directory
+        run: ls
+
