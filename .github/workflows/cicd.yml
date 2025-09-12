@@ -1,8 +1,9 @@
 name: "Sample react react pipeline"
 on:
-  branches:
-    - main
-    - master
+  push:
+    branches:
+      - main
+      - master
 jobs:
   build_test:
     runs-on: ubuntu-latest
