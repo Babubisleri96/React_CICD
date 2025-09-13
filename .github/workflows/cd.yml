@@ -1,0 +1,20 @@
+name: "CD pipeline"
+on:
+  workflow_run: [ "CI pipeline" ]
+  types:
+    - completed
+
+jobs:
+  cd-job:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Print the message
+        run: echo "CI pipeline succeeded"
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: print the message
+        run: echo "CI pipeline fails"
